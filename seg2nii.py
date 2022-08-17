@@ -18,14 +18,14 @@ segmentations = []
 for dirpath, subdirs, files in os.walk(dcm_dataset_path):
     if files:
         # remember there's only one segmentation file
-        segmentations.append(Path.joinpath(Path(dirpath), files[0]))
+        segmentations.append(Path(dirpath) / files[0])
 
 for dcm_path in tqdm(segmentations):
     patient_name = str(dcm_path).split('\\')[6]
     # open dcm segmentation
     volume_seg = pd.dcmread(dcm_path).pixel_array
     # open corresponding nii mri
-    volume_mri = nii_dataset_path.joinpath(patient_name).joinpath("MRI_" + patient_name + ".nii")
+    volume_mri = nii_dataset_path / patient_name / ("MRI_" + patient_name + ".nii")
     assert volume_mri.exists()
     niimri = nii.load(volume_mri)
     volume_mri = niimri.get_fdata()
@@ -50,5 +50,5 @@ for dcm_path in tqdm(segmentations):
     assert volume_seg.shape == volume_mri.shape
     # saving segmentations
     niiobj = nii.Nifti1Image(volume_seg, niimri.affine)
-    out_path = nii_dataset_path.joinpath(patient_name).joinpath("Prostate_"+patient_name+".nii")
+    out_path = nii_dataset_path / patient_name / ("Prostate_"+patient_name+".nii")
     nii.save(niiobj, out_path)

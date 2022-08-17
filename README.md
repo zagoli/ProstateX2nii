@@ -3,7 +3,7 @@ I used these scripts to convert the [PROSTATEx-Seg-HiRes](https://wiki.cancerima
 DICOM dataset to a more friendly nii format. This dataset is not straightforward to convert for various reasons,
 for example, you can use [dcm2niix](https://github.com/rordenlab/dcm2niix) to convert the mri images but not the
 segmentations, there isn't a one-to-one relation between segmentation slices and mri slices and so on. 
-Remember: this code is far from perfect, it's not well engineered, and it was written for personal necessity.
+__Remember: this code is far from perfect, it's not well engineered, and it was written for personal necessity.__
 
 ## Usage
 1. Download the dataset with classic directory names option (both mri and segmentations).

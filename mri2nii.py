@@ -19,7 +19,7 @@ for dirpath, subdirs, files in os.walk(dcm_dataset_path):
 for dcm_folder in dcm_folders:
     patient_name = dcm_folder.split('\\')[6]
     # output directory creation
-    out_path = Path.joinpath(nii_dataset_path, patient_name)
+    out_path = nii_dataset_path / patient_name
     os.mkdir(out_path)
     # parameters for conversion.
     # -e : export as NRRD (y) or MGH (o) instead of NIfTI (y/n/o, default n)
