@@ -4,6 +4,7 @@ DICOM dataset to a more friendly nii format. This dataset is not straightforward
 for example, you can use [dcm2niix](https://github.com/rordenlab/dcm2niix) to convert the mri images but not the
 segmentations, there isn't a one-to-one relation between segmentation slices and mri slices and so on. 
 __Remember: this code is far from perfect, it's not well engineered, and it was written for personal necessity.__
+For a much cleaner code with automated downloads of data and tools see [this gist](https://gist.github.com/prerakmody/7987e8b62e7c5237747a840b19200692).
 
 ## Usage
 1. Download the dataset with classic directory names option (both mri and segmentations).
